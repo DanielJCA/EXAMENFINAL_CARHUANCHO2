@@ -9,5 +9,7 @@ urlpatterns = [
     path('registrarPais/', views.registrarPais, name = "registrarPais"),
     path('eliminarEditorial/<int:id>', views.eliminarEditorial, name = "eliminarEditorial"),
     path('registrarEditorial/', views.registrarEditorial, name = "registrarEditorial"),
+    path('gestionAlumno/', views.gestionAlumno, name = "gestionAlumno"),
+
     
 ]

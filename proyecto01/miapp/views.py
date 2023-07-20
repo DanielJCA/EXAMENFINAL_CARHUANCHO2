@@ -42,5 +42,7 @@ def registrarEditorial(request):
     editorial=Editorial.objects.create(ideditorial=ideditorial,nombre=nombre,url=url, imagen=imagen, estado=estado)
     return redirect('/')
 
+def gestionAlumno(request):
+    return render(request,'gestionAlumno.html')
 
 
