@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  curso
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h2>Registrar Editorial</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registrarcurso/" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" 
+                             required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtNombres" name="txtNombres" class="form-control" 
+                             required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtHoras" name="txtHoras" class="form-control" 
+                             required>
+                    </div>      
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Listado de Editoriales</h1>
+    </div>
+</div>
+{% endblock %}
