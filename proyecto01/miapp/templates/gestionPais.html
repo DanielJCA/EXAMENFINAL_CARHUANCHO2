@@ -9,19 +9,27 @@
         <h2>Registrar Pais</h2>
         <div class="card">
             <div class="card-body">
-                <form action="/registrarcurso/" method="POST">
+                <form action="/registrarPais/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="txtIdPais" name="txtIdPais" class="form-control" 
+                             required>
+                    </div>
                     <div class="form-group">
                         <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" 
                              required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="txtNombres" name="txtNombres" class="form-control" 
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" 
                              required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="txtHoras" name="txtHoras" class="form-control" 
+                        <input type="text" id="txtPoblacion" name="txtPoblacion" class="form-control" 
                              required>
                     </div>      
+                    <div class="form-group">
+                        <input type="text" id="txtEstado" name="txtEstado" class="form-control" 
+                             required>
+                    </div>  
                     <div class="form-group">
                         <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
                     </div>
@@ -31,7 +39,35 @@
     </div>
     <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
         <h1>Listado de Paises</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Pais</th>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Poblacion</th>
+                        <th>Estado</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in Pais %}
+                    <tr>
+                        <td>{{c.idpais}}</td>
+                        <td>{{c.codigo}}</td>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.poblacion}}</td>
+                        <td>{{c.estado}}</td>
+                        <td><a href="edicioncurso/{{c.codigo}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="{%url 'eliminarPais' id=c.idpais%}" class="btn btn-danger">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
 </div>
 {% endblock %}
 
